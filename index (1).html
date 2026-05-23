@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Craftora Web — Jasa Pembuatan Website Profesional Harga Terjangkau</title>
+  <meta name="description" content="Jasa pembuatan website profesional untuk UMKM, bisnis lokal, katalog online, undangan digital. Harga mulai Rp100.000. Konsultasi gratis via WhatsApp."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1D4ED8;
+      --primary-light: #3B82F6;
+      --primary-soft: #EFF6FF;
+      --accent: #10B981;
+      --accent-soft: #ECFDF5;
+      --ink: #0F172A;
+      --ink2: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+      --wa: #25D366;
+      --wa-dark: #128C7E;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+      --shadow: 0 4px 16px rgba(0,0,0,.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.12);
+      --radius: 14px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--ink); background: var(--white); font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+
+    /* ─── UTILS ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-soft); color: var(--primary); font-size: 12px; font-weight: 600; letter-spacing: .5px; padding: 5px 14px; border-radius: 100px; }
+    .badge-green { background: var(--accent-soft); color: var(--accent); }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+    .section-title { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; color: var(--ink); line-height: 1.2; letter-spacing: -.5px; }
+    .section-sub { font-size: 15px; color: var(--muted); line-height: 1.75; margin-top: 10px; max-width: 560px; }
+    .section-center { text-align: center; }
+    .section-center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ─── BUTTONS ─── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; border: none; transition: all .22s; white-space: nowrap; }
+    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(29,78,216,.3); }
+    .btn-primary:hover { background: #1e40af; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(29,78,216,.4); }
+    .btn-wa { background: var(--wa); color: #fff; box-shadow: 0 4px 14px rgba(37,211,102,.35); }
+    .btn-wa:hover { background: var(--wa-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,.45); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-lg { padding: 15px 32px; font-size: 15px; }
+    .btn-full { width: 100%; justify-content: center; }
+
+    /* ─── FLOATING WA ─── */
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 56px; height: 56px; background: var(--wa); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.5); animation: pulse-wa 2.5s infinite; text-decoration: none; transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes pulse-wa { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)} 50%{box-shadow:0 4px 32px rgba(37,211,102,.75)} }
+
+    /* ─── NAV ─── */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
+    .logo { font-size: 18px; font-weight: 800; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+    .logo span { color: var(--primary); }
+    .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--ink2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-wa { display: flex; align-items: center; gap: 6px; background: var(--wa); color: white; padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all .2s; }
+    .nav-wa:hover { background: var(--wa-dark); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .3s; }
+    .mobile-menu { display: none; background: white; border-top: 1px solid var(--border); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 14px 20px; color: var(--ink2); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--border); }
+
+    /* ─── HERO ─── */
+    .hero { background: linear-gradient(160deg, var(--primary-soft) 0%, #fff 60%); padding: 72px 0 64px; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .hero-tag { margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -.7px; color: var(--ink); }
+    .hero h1 span { color: var(--primary); }
+    .hero-sub { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 16px; max-width: 480px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    /* Hero visual */
+    .hero-card { background: white; border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid var(--border); }
+    .hc-header { background: var(--primary); padding: 18px 20px; display: flex; align-items: center; gap: 10px; }
+    .hc-avatar { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .hc-title { color: white; font-weight: 700; font-size: 14px; }
+    .hc-sub { color: rgba(255,255,255,.7); font-size: 12px; }
+    .hc-body { padding: 20px; }
+    .hc-msg { background: var(--primary-soft); border-radius: 12px 12px 12px 0; padding: 12px 14px; font-size: 13px; color: var(--ink2); margin-bottom: 12px; max-width: 85%; line-height: 1.6; }
+    .hc-msg.right { background: var(--accent-soft); margin-left: auto; margin-right: 0; border-radius: 12px 12px 0 12px; }
+    .hc-services { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+    .hc-svc { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--ink2); display: flex; align-items: center; gap: 6px; }
+    .hc-svc span { font-size: 15px; }
+    .hc-price { margin-top: 14px; background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft)); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; }
+    .hc-price-label { font-size: 12px; color: var(--muted); }
+    .hc-price-val { font-size: 16px; font-weight: 800; color: var(--primary); }
+
+    /* ─── KEUNGGULAN ─── */
+    .feat { background: var(--bg); padding: 72px 0; }
+    .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+    .feat-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; transition: all .25s; }
+    .feat-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--primary); }
+    .feat-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; background: var(--primary-soft); }
+    .feat-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+    .feat-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ─── LAYANAN ─── */
+    .layanan { padding: 72px 0; background: white; }
+    .layanan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+    .layanan-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all .25s; cursor: default; }
+    .layanan-card:hover { border-color: var(--primary); background: var(--primary-soft); box-shadow: var(--shadow); }
+    .layanan-card:hover .lc-icon { background: var(--primary); color: white; }
+    .lc-icon { width: 46px; height: 46px; border-radius: 12px; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 14px; transition: all .25s; }
+    .layanan-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .layanan-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ─── HARGA ─── */
+    .harga { background: var(--bg); padding: 72px 0; }
+    .harga-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 12px; }
+    .harga-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+    .harga-card { background: white; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 28px 24px; transition: all .25s; position: relative; }
+    .harga-card:hover { border-color: var(--primary-light); box-shadow: var(--shadow); }
+    .harga-card.popular { border-color: var(--primary); box-shadow: 0 8px 32px rgba(29,78,216,.12); }
+    .popular-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 100px; white-space: nowrap; }
+    .harga-icon { font-size: 28px; margin-bottom: 12px; }
+    .harga-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .harga-desc { font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.55; }
+    .harga-price { font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+    .harga-price small { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .harga-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .harga-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .harga-features li { font-size: 13px; color: var(--ink2); display: flex; align-items: flex-start; gap: 8px; }
+    .harga-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .harga-disclaimer { text-align: center; margin-top: 32px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; font-size: 13px; color: var(--muted); }
+
+    /* ─── ALUR ─── */
+    .alur { background: white; padding: 72px 0; }
+    .alur-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; position: relative; }
+    .alur-steps::before { content: ''; position: absolute; top: 30px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--primary-soft), var(--primary-soft)); z-index: 0; }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-num { width: 60px; height: 60px; border-radius: 50%; background: var(--primary); color: white; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; box-shadow: 0 4px 16px rgba(29,78,216,.3); }
+    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ─── CTA MID ─── */
+    .cta-mid { background: linear-gradient(135deg, #0F172A 0%, #1e3a5f 100%); padding: 64px 0; text-align: center; }
+    .cta-mid h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 12px; }
+    .cta-mid p { color: rgba(255,255,255,.6); font-size: 15px; max-width: 480px; margin: 0 auto 28px; }
+    .cta-mid .btn-wa { font-size: 15px; padding: 15px 36px; }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--bg); padding: 72px 0; }
+    .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--ink); gap: 12px; user-select: none; }
+    .faq-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; transition: all .25s; }
+    .faq-item.open .faq-icon { background: var(--primary); color: white; transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-a-inner { padding: 0 24px 18px; font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 200px; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #0F172A; color: white; padding: 48px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-logo { font-size: 20px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .footer-logo span { color: var(--primary-light); }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 300px; }
+    .footer-wa { display: inline-flex; align-items: center; gap: 8px; background: var(--wa); color: white; padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 600; text-decoration: none; margin-top: 16px; transition: all .2s; }
+    .footer-wa:hover { background: var(--wa-dark); }
+    .footer-h { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.8); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.on { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      .nav-links, .nav-wa { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .hero-card { display: none; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .layanan-grid { grid-template-columns: 1fr 1fr; }
+      .harga-grid { grid-template-columns: 1fr; }
+      .alur-steps { grid-template-columns: 1fr 1fr; }
+      .alur-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 540px) {
+      .feat-grid, .layanan-grid, .alur-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6282234590939" target="_blank" class="wa-float" title="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="logo"><div class="logo-dot"></div>Craftora<span>Web</span></a>
+    <ul class="nav-links">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#harga">Harga</a></li>
+      <li><a href="#alur">Cara Pesan</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://wa.me/6282234590939" target="_blank" class="nav-wa">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat WhatsApp
+    </a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#layanan" onclick="toggleMenu()">Layanan</a>
+    <a href="#harga" onclick="toggleMenu()">Harga</a>
+    <a href="#alur" onclick="toggleMenu()">Cara Pesan</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="https://wa.me/6282234590939" target="_blank" style="color:#25D366;font-weight:700;">💬 Chat WhatsApp Sekarang</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag reveal">
+          <span class="badge badge-green">✦ Harga Mulai Rp 100.000</span>
+        </div>
+        <h1 class="reveal">Buat Website Profesional untuk Bisnismu <span>Mulai dari Harga Terjangkau</span></h1>
+        <p class="hero-sub reveal">Kami membantu UMKM, bisnis lokal, personal brand, dan kebutuhan digital lainnya memiliki website yang rapi, cepat, dan mudah diakses pelanggan.</p>
+        <div class="hero-btns reveal">
+          <a href="https://wa.me/6282234590939?text=Halo%20Craftora%20Web%2C%20saya%20ingin%20konsultasi%20gratis%20tentang%20pembuatan%20website" target="_blank" class="btn btn-wa btn-lg">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Konsultasi Gratis via WhatsApp
+          </a>
+          <a href="#harga" class="btn btn-outline btn-lg">Lihat Paket Harga</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-lbl">Website Dibuat</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Klien Puas</div></div>
+          <div class="stat"><div class="stat-num">3–7</div><div class="stat-lbl">Hari Selesai</div></div>
+          <div class="stat"><div class="stat-num">Rp 100rb</div><div class="stat-lbl">Mulai Dari</div></div>
+        </div>
+      </div>
+      <!-- Hero Card Visual -->
+      <div class="reveal">
+        <div class="hero-card">
+          <div class="hc-header">
+            <div class="hc-avatar">🌐</div>
+            <div>
+              <div class="hc-title">Craftora Web</div>
+              <div class="hc-sub">Jasa Pembuatan Website</div>
+            </div>
+          </div>
+          <div class="hc-body">
+            <div class="hc-msg">Halo! Saya butuh website untuk toko online saya 🛒</div>
+            <div class="hc-msg right">Siap! Kami bisa bantu. Katalog + checkout WhatsApp mulai Rp 800.000 ✅</div>
+            <div class="hc-services">
+              <div class="hc-svc"><span>🏪</span> UMKM</div>
+              <div class="hc-svc"><span>💒</span> Undangan</div>
+              <div class="hc-svc"><span>🛒</span> Katalog</div>
+              <div class="hc-svc"><span>📊</span> Admin Panel</div>
+            </div>
+            <div class="hc-price">
+              <div>
+                <div class="hc-price-label">Mulai dari hanya</div>
+                <div class="hc-price-val">Rp 100.000</div>
+              </div>
+              <a href="https://wa.me/6282234590939" target="_blank" class="btn btn-wa" style="padding:10px 18px;font-size:13px;">Pesan →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="feat" id="keunggulan">
+  <div class="container">
+    <div class="section-center reveal">
+      <div class="section-label">Kenapa Pilih Kami?</div>
+      <h2 class="section-title">Profesional, Terjangkau,<br/>dan Bisa Request Sesuai Kebutuhan</h2>
+      <p class="section-sub">Kami hadir untuk membantu bisnis kamu tampil profesional di dunia digital tanpa harus menguras kantong.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">💰</div>
+        <h3>Harga Terjangkau</h3>
+        <p>Tidak perlu budget besar. Mulai dari Rp 100.000 sudah bisa punya website siap pakai.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">📱</div>
+        <h3>Desain Responsif</h3>
+        <p>Tampil sempurna di HP, tablet, dan laptop. Semua pelanggan bisa akses dengan nyaman.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🎨</div>
+        <h3>Bisa Custom Desain</h3>
+        <p>Tidak hanya template. Kami terima request desain sesuai keinginan dan branding kamu.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🏪</div>
+        <h3>Cocok untuk UMKM</h3>
+        <p>Dirancang khusus untuk usaha kecil, cafe, toko, personal brand, dan bisnis lokal.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🌐</div>
+        <h3>Bantuan Domain & Hosting</h3>
+        <p>Kami bantu setup domain dan hosting agar website kamu online dan bisa diakses siapa saja.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">💬</div>
+        <h3>Checkout via WhatsApp</h3>
+        <p>Pelangganmu bisa langsung pesan lewat WhatsApp dari website. Mudah dan praktis!</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🔧</div>
+        <h3>Ada Layanan Maintenance</h3>
+        <p>Website butuh update atau ada error? Kami siap bantu dengan harga yang bersahabat.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">✨</div>
+        <h3>Tampilan Profesional</h3>
+        <p>Desain modern dan bersih yang membuat bisnismu terlihat terpercaya dan meyakinkan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="layanan" id="layanan">
+  <div class="container">
+    <div class="section-center reveal">
+      <div class="section-label">Layanan Kami</div>
+      <h2 class="section-title">Semua Kebutuhan Website<br/>Ada di Sini</h2>
+      <p class="section-sub">Dari website sederhana hingga sistem yang lebih kompleks, kami kerjakan semuanya.</p>
+    </div>
+    <div class="layanan-grid">
+      <div class="layanan-card reveal">
+        <div class="lc-icon">🚀</div>
+        <h3>Landing Page Promosi</h3>
+        <p>Halaman promosi singkat dan padat yang langsung mengajak pengunjung untuk action.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">🏪</div>
+        <h3>Website UMKM</h3>
+        <p>Website lengkap untuk usaha kecil menengah dengan profil bisnis, produk, dan kontak.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">📋</div>
+        <h3>Katalog Online</h3>
+        <p>Tampilkan produk kamu secara digital. Pelanggan bisa lihat dan langsung pesan via WA.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">💬</div>
+        <h3>Checkout WhatsApp</h3>
+        <p>Sistem pemesanan langsung ke WhatsApp. Cocok untuk toko online tanpa payment gateway.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">🛒</div>
+        <h3>Mini E-commerce</h3>
+        <p>Toko online lengkap dengan keranjang belanja dan pembayaran QRIS yang mudah dipakai.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">💒</div>
+        <h3>Undangan Nikah Digital</h3>
+        <p>Undangan pernikahan online yang elegan dan berkesan. Bagikan ke semua tamu dengan mudah.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">🎂</div>
+        <h3>Website Ucapan Ulang Tahun</h3>
+        <p>Hadiah digital yang berkesan dan unik. Buat orang spesial merasa istimewa di hari ulang tahunnya.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">⚙️</div>
+        <h3>CRUD / Admin Panel</h3>
+        <p>Sistem manajemen data dengan dashboard admin. Cocok untuk usaha yang butuh data terstruktur.</p>
+      </div>
+      <div class="layanan-card reveal">
+        <div class="lc-icon">🔧</div>
+        <h3>Maintenance Website</h3>
+        <p>Update konten, perbaikan bug, tambah fitur baru, atau optimasi kecepatan website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section class="harga" id="harga">
+  <div class="container">
+    <div class="section-center reveal">
+      <div class="section-label">Paket Harga</div>
+      <h2 class="section-title">Harga Jelas, Transparan,<br/>dan Bisa Menyesuaikan Budget</h2>
+      <p class="section-sub">Gunakan kata "mulai dari" karena harga bisa menyesuaikan fitur dan kebutuhan website kamu.</p>
+    </div>
+    <div class="harga-grid">
+      <div class="harga-card reveal">
+        <div class="harga-icon">🎂</div>
+        <div class="harga-name">Website Ucapan Ulang Tahun</div>
+        <div class="harga-desc">Hadiah digital berkesan untuk orang tersayang di hari spesial mereka.</div>
+        <div class="harga-price">mulai Rp 100.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Desain menarik & animasi</li>
+          <li>Nama & foto custom</li>
+          <li>Bisa dibagikan via link</li>
+          <li>Proses cepat 1 hari</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Website%20Ucapan%20Ulang%20Tahun" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card reveal">
+        <div class="harga-icon">💒</div>
+        <div class="harga-name">Undangan Nikah Digital</div>
+        <div class="harga-desc">Undangan pernikahan online yang elegan dan mudah dibagikan ke semua tamu.</div>
+        <div class="harga-price">mulai Rp 200.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Desain elegan & romantis</li>
+          <li>Info lengkap acara</li>
+          <li>RSVP online</li>
+          <li>Link bisa dibagikan</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Undangan%20Nikah%20Digital" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card reveal">
+        <div class="harga-icon">🚀</div>
+        <div class="harga-name">Landing Page Basic</div>
+        <div class="harga-desc">Halaman promosi singkat dan menarik untuk bisnis atau produk kamu.</div>
+        <div class="harga-price">Rp 400.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>1 halaman full desain custom</li>
+          <li>Responsif di semua device</li>
+          <li>Tombol WhatsApp / CTA</li>
+          <li>Revisi 2x</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Landing%20Page%20Basic" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card popular reveal">
+        <div class="popular-badge">⭐ Paling Populer</div>
+        <div class="harga-icon">🌐</div>
+        <div class="harga-name">Landing Page + Domain + Maintenance</div>
+        <div class="harga-desc">Paket lengkap dengan domain sendiri dan maintenance 1 bulan. Paling diminati!</div>
+        <div class="harga-price">Rp 500.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Landing page custom</li>
+          <li>Domain .site / .my.id 1 tahun</li>
+          <li>Maintenance 1 bulan</li>
+          <li>Revisi unlimited</li>
+          <li>Responsif & cepat</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20paket%20Landing%20Page%20%2B%20Domain%20%2B%20Maintenance" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card reveal">
+        <div class="harga-icon">📋</div>
+        <div class="harga-name">Katalog Online + Checkout WA</div>
+        <div class="harga-desc">Tampilkan produk secara digital dengan sistem pemesanan langsung ke WhatsApp.</div>
+        <div class="harga-price">mulai Rp 800.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Katalog produk lengkap</li>
+          <li>Tombol checkout ke WA</li>
+          <li>Filter & kategori produk</li>
+          <li>Desain profesional</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Katalog%20Online%20%2B%20Checkout%20WA" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card reveal">
+        <div class="harga-icon">🛒</div>
+        <div class="harga-name">Mini E-commerce QRIS</div>
+        <div class="harga-desc">Toko online lengkap dengan keranjang belanja dan pembayaran QRIS terintegrasi.</div>
+        <div class="harga-price">mulai Rp 1.200.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Keranjang belanja</li>
+          <li>Pembayaran QRIS</li>
+          <li>Manajemen produk</li>
+          <li>Notifikasi pesanan</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Mini%20E-commerce%20QRIS" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+      <div class="harga-card reveal" style="grid-column: span 1;">
+        <div class="harga-icon">⚙️</div>
+        <div class="harga-name">CRUD / Admin Panel</div>
+        <div class="harga-desc">Sistem manajemen data dengan panel admin untuk bisnis yang butuh kelola data.</div>
+        <div class="harga-price">mulai Rp 1.500.000 <small></small></div>
+        <div class="harga-divider"></div>
+        <ul class="harga-features">
+          <li>Dashboard admin</li>
+          <li>Kelola data (tambah, edit, hapus)</li>
+          <li>Login & autentikasi</li>
+          <li>Database terstruktur</li>
+        </ul>
+        <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20CRUD%20%2F%20Admin%20Panel" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
+      </div>
+    </div>
+    <div class="harga-disclaimer reveal">
+      💡 <strong>Harga dapat menyesuaikan fitur dan kebutuhan website.</strong> Konsultasikan kebutuhan kamu dulu, kami bantu carikan paket yang paling sesuai budget.
+    </div>
+  </div>
+</section>
+
+<!-- ALUR -->
+<section class="alur" id="alur">
+  <div class="container">
+    <div class="section-center reveal">
+      <div class="section-label">Cara Pesan</div>
+      <h2 class="section-title">4 Langkah Mudah,<br/>Website Langsung Jadi</h2>
+    </div>
+    <div class="alur-steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Konsultasi Kebutuhan</h3>
+        <p>Ceritakan kebutuhan website kamu via WhatsApp. Gratis, tanpa komitmen apapun.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Desain & Pembuatan</h3>
+        <p>Tim kami mulai proses desain dan pembuatan setelah kebutuhan dan paket disepakati.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Revisi Ringan</h3>
+        <p>Kamu bisa request perubahan tampilan atau konten hingga hasilnya sesuai keinginan.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <h3>Website Siap Digunakan</h3>
+        <p>Website live dan siap diakses! Kami bantu setup dan pastikan semuanya berjalan lancar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA MID -->
+<div class="cta-mid">
+  <div class="container">
+    <h2 class="reveal">Masih Bingung Butuh Website Seperti Apa?</h2>
+    <p class="reveal">Konsultasi dulu gratis lewat WhatsApp. Kami bantu carikan solusi yang paling cocok dan sesuai budget kamu.</p>
+    <a href="https://wa.me/6282234590939?text=Halo%20Craftora%20Web%2C%20saya%20ingin%20konsultasi%20gratis%20pembuatan%20website" target="_blank" class="btn btn-wa reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat WhatsApp Sekarang
+    </a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-center reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang Sering Ditanyakan</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah bisa request desain sesuai keinginan?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Tentu bisa! Kami menerima request desain sesuai keinginan kamu. Silahkan kirimkan referensi atau gambaran desain yang kamu inginkan lewat WhatsApp, dan tim kami akan mewujudkannya.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah harga bisa menyesuaikan budget saya?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Ya, harga di atas adalah harga mulai dari. Kami sangat terbuka untuk mendiskusikan fitur dan harga yang paling sesuai dengan budget kamu. Konsultasikan dulu lewat WhatsApp, gratis!</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah bisa dibuatkan domain dan hosting?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Bisa! Kami membantu setup domain dan hosting agar website kamu bisa diakses oleh siapa saja. Domain tersedia dalam berbagai ekstensi seperti .id, .my.id, .site, dan lainnya.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah ada fitur checkout langsung ke WhatsApp?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Ya, kami menyediakan fitur checkout via WhatsApp untuk katalog dan toko online. Pelanggan kamu cukup klik tombol, dan pesanan langsung masuk ke WhatsApp kamu secara otomatis.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah cocok untuk UMKM dan bisnis lokal?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Sangat cocok! Kami memang dirancang khusus untuk membantu UMKM, usaha kecil, cafe, toko, dan bisnis lokal agar bisa tampil profesional di dunia digital dengan harga yang terjangkau.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Berapa lama proses pembuatan website?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Tergantung jenis website. Website ucapan ulang tahun dan undangan digital bisa selesai dalam 1 hari. Landing page biasanya 2–3 hari. Website yang lebih kompleks seperti e-commerce atau admin panel bisa 5–14 hari kerja.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><div class="logo-dot"></div>Craftora<span>Web</span></div>
+        <p class="footer-desc">Jasa pembuatan website untuk UMKM, personal, katalog online, undangan digital, dan kebutuhan bisnis lainnya. Profesional, terjangkau, dan siap membantu bisnismu berkembang.</p>
+        <a href="https://wa.me/6282234590939" target="_blank" class="footer-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat: 082234590939
+        </a>
+      </div>
+      <div>
+        <div class="footer-h">Layanan</div>
+        <ul class="footer-links">
+          <li><a href="#layanan">Landing Page</a></li>
+          <li><a href="#layanan">Website UMKM</a></li>
+          <li><a href="#layanan">Katalog Online</a></li>
+          <li><a href="#layanan">Mini E-commerce</a></li>
+          <li><a href="#layanan">Undangan Digital</a></li>
+          <li><a href="#layanan">Admin Panel</a></li>
+          <li><a href="#layanan">Maintenance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Navigasi</div>
+        <ul class="footer-links">
+          <li><a href="#keunggulan">Keunggulan</a></li>
+          <li><a href="#harga">Paket Harga</a></li>
+          <li><a href="#alur">Cara Pesan</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/6282234590939" target="_blank">Konsultasi Gratis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Craftora Web. Semua hak dilindungi.</p>
+      <p>WhatsApp: <a href="https://wa.me/6282234590939" target="_blank" style="color:rgba(255,255,255,.5);text-decoration:none;">082234590939</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // FAQ accordion
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
