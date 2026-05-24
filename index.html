@@ -199,6 +199,29 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
     .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.3); }
 
+    /* ─── DEMO MODAL ─── */
+    .demo-bd { position: fixed; inset: 0; z-index: 9998; background: rgba(10,15,30,.92); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; padding: 16px; }
+    .demo-bd.show { opacity: 1; pointer-events: all; }
+    .demo-win { background: white; border-radius: 14px; width: 100%; max-width: 920px; max-height: 90vh; display: flex; flex-direction: column; transform: translateY(30px) scale(.96); transition: all .4s cubic-bezier(.175,.885,.32,1.275); box-shadow: 0 40px 120px rgba(0,0,0,.6); overflow: hidden; }
+    .demo-bd.show .demo-win { transform: translateY(0) scale(1); }
+    .demo-bar { background: #1e1e1e; padding: 12px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .demo-dots3 { display: flex; gap: 6px; flex-shrink: 0; }
+    .demo-dot3 { width: 12px; height: 12px; border-radius: 50%; }
+    .demo-url { flex: 1; background: #3a3a3a; border-radius: 6px; padding: 5px 12px; font-size: 11.5px; color: #bbb; font-family: monospace; text-align: center; max-width: 400px; margin: 0 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .demo-x { background: transparent; border: none; color: #888; font-size: 18px; cursor: pointer; width: 32px; height: 32px; border-radius: 6px; transition: all .2s; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .demo-x:hover { background: rgba(255,255,255,.12); color: white; }
+    .demo-info-bar { background: #EFF6FF; border-bottom: 1px solid #BFDBFE; padding: 7px 20px; font-size: 11px; font-weight: 600; color: #1D4ED8; text-align: center; letter-spacing: .3px; flex-shrink: 0; }
+    .demo-tabs-row { background: #F8FAFC; border-bottom: 1px solid #E2E8F0; display: flex; overflow-x: auto; flex-shrink: 0; scrollbar-width: none; }
+    .demo-tabs-row::-webkit-scrollbar { display: none; }
+    .demo-tab { padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: #64748B; cursor: pointer; border-bottom: 2.5px solid transparent; white-space: nowrap; transition: all .2s; flex-shrink: 0; }
+    .demo-tab:hover { color: #1D4ED8; background: rgba(29,78,216,.04); }
+    .demo-tab.on { color: #1D4ED8; border-bottom-color: #1D4ED8; background: white; }
+    .demo-body { overflow-y: auto; flex: 1; background: white; }
+    .dp { display: none; }
+    .dp.on { display: block; }
+    .btn-demo { display: block; width: 100%; padding: 10px 16px; margin-bottom: 8px; background: #F8FAFC; color: #1D4ED8; border: 1.5px solid #BFDBFE; border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; text-align: center; }
+    .btn-demo:hover { background: #EFF6FF; border-color: #1D4ED8; transform: translateY(-1px); }
+
     /* ─── WHY WEBSITE ─── */
     .why { background: white; padding: 72px 0; border-bottom: 1px solid var(--border); }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 48px; }
@@ -579,6 +602,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>Testimoni — review pelanggan</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Kontak — WA, maps, sosial media</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('landing')">👁 Lihat Contoh Website</button>
       </div>
       <div class="dc reveal">
         <div class="dc-top">
@@ -598,6 +622,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>Galeri — foto kegiatan & tempat</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Kontak — WA, email, maps</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('company')">👁 Lihat Contoh Website</button>
       </div>
       <div class="dc reveal">
         <div class="dc-top">
@@ -617,6 +642,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>Kategori & filter produk</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Tombol pesan via WhatsApp</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('katalog')">👁 Lihat Contoh Website</button>
       </div>
       <div class="dc reveal">
         <div class="dc-top">
@@ -636,6 +662,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>Upload gambar produk</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Halaman publik dinamis</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('admin')">👁 Lihat Contoh Website</button>
       </div>
       <div class="dc reveal">
         <div class="dc-top">
@@ -655,6 +682,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>QR pembayaran muncul dinamis</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Struk & laporan penjualan</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('kasir')">👁 Lihat Contoh Website</button>
       </div>
       <div class="dc reveal">
         <div class="dc-top">
@@ -674,6 +702,7 @@
           <div class="dc-pg"><span class="dc-pg-dot"></span>Countdown, RSVP, ucapan tamu</div>
           <div class="dc-pg"><span class="dc-pg-dot"></span>Maps & amplop digital</div>
         </div>
+        <button class="btn-demo" style="margin-top:14px;" onclick="openDemo('undangan')">👁 Lihat Contoh Website</button>
       </div>
     </div>
   </div>
@@ -701,6 +730,7 @@
           <li>Pesan pribadi & link shareable</li>
           <li>Selesai dalam 1 hari</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('ultah')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Website%20Ucapan%20Ulang%20Tahun" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -716,6 +746,7 @@
           <li>RSVP & ucapan tamu</li>
           <li>Amplop digital</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('undangan')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Undangan%20Nikah%20Digital" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -731,6 +762,7 @@
           <li>Section layanan & testimoni</li>
           <li>Revisi minor</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('landing')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Landing%20Page%20Basic" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card popular reveal">
@@ -762,6 +794,7 @@
           <li>Kontak WA + Google Maps</li>
           <li>Desain responsif</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('company')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Company%20Profile%20%2F%20UMKM" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -777,6 +810,7 @@
           <li>Search produk</li>
           <li>Tombol order via WhatsApp</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('katalog')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Katalog%20Produk%20Online" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -792,6 +826,7 @@
           <li>Database terstruktur</li>
           <li>Halaman publik dinamis</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('admin')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20CRUD%20%2F%20Admin%20Panel" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -807,6 +842,7 @@
           <li>Dashboard admin pesanan</li>
           <li>Status pesanan</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('ecommerce')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20E-Commerce%20Manual" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -837,6 +873,7 @@
           <li>Simpan & cetak struk</li>
           <li>Laporan penjualan harian</li>
         </ul>
+        <button class="btn-demo" onclick="openDemo('kasir')">👁 Lihat Contoh Website</button>
         <a href="https://wa.me/6282234590939?text=Halo%2C%20saya%20mau%20pesan%20Sistem%20Kasir%20Kafe%20POS%20QRIS" target="_blank" class="btn btn-wa btn-full">Pesan Sekarang</a>
       </div>
       <div class="harga-card reveal">
@@ -1058,6 +1095,822 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+</script>
+
+<!-- ═══════════════ DEMO MODAL ═══════════════ -->
+<div class="demo-bd" id="demoBd" onclick="closeDemoOnBg(event)">
+  <div class="demo-win" id="demoWin">
+    <div class="demo-bar">
+      <div class="demo-dots3">
+        <div class="demo-dot3" style="background:#ff5f57"></div>
+        <div class="demo-dot3" style="background:#febc2e"></div>
+        <div class="demo-dot3" style="background:#28c840"></div>
+      </div>
+      <div class="demo-url" id="demoUrl">craftoraweb.site/demo</div>
+      <button onclick="closeDemo()" style="background:transparent;border:none;color:#aaa;font-size:20px;cursor:pointer;width:32px;height:32px;border-radius:6px;flex-shrink:0;line-height:1;">✕</button>
+    </div>
+    <div class="demo-info-bar" id="demoInfoBar">Preview tampilan website</div>
+    <div class="demo-tabs-row" id="demoTabsRow"></div>
+    <div class="demo-body" id="demoBodyContent"></div>
+  </div>
+</div>
+
+<script>
+/* ── DEMO DATA ── */
+const DD = {
+
+undangan:{
+  url:'craftoraweb.site/demo-undangan',
+  info:'💒 Contoh: Website Undangan Nikah Digital',
+  tabs:['🌸 Buka','💍 Mempelai','📅 Acara','📸 Galeri','✉️ RSVP'],
+  pages:[
+    /* 0 – Buka */
+    `<div style="background:linear-gradient(160deg,#12002e,#3b0068,#6a0dad);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,215,0,.15),transparent 70%);pointer-events:none;"></div>
+      <div style="font-size:11px;letter-spacing:5px;opacity:.65;font-weight:600;margin-bottom:18px;">✦ UNDANGAN PERNIKAHAN ✦</div>
+      <div style="font-size:13px;font-style:italic;opacity:.7;margin-bottom:10px;">Bismillahirrahmanirrahim</div>
+      <h1 style="font-size:46px;font-family:Georgia,serif;line-height:1.1;margin-bottom:6px;text-shadow:0 2px 20px rgba(255,215,0,.3);">Rizky</h1>
+      <div style="font-size:22px;opacity:.6;font-family:Georgia,serif;">&amp;</div>
+      <h1 style="font-size:46px;font-family:Georgia,serif;line-height:1.1;margin-bottom:20px;text-shadow:0 2px 20px rgba(255,215,0,.3);">Ayu</h1>
+      <div style="width:80px;height:1px;background:linear-gradient(90deg,transparent,gold,transparent);margin:0 auto 20px;"></div>
+      <div style="font-size:14px;opacity:.75;margin-bottom:6px;">📅 Sabtu, 14 Juni 2025</div>
+      <div style="font-size:13px;opacity:.6;">Gedung Serbaguna Graha Indah · Jakarta Selatan</div>
+      <button style="margin-top:30px;padding:13px 36px;background:linear-gradient(135deg,#ffd700,#ffb700);color:#12002e;border:none;border-radius:100px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.5px;box-shadow:0 8px 24px rgba(255,215,0,.3);">Buka Undangan ✦</button>
+    </div>`,
+
+    /* 1 – Mempelai */
+    `<div style="background:#fdf5e6;min-height:520px;padding:40px 20px;text-align:center;">
+      <div style="font-size:11px;letter-spacing:4px;color:#8b6914;font-weight:600;margin-bottom:8px;">MEMPELAI</div>
+      <h2 style="font-family:Georgia,serif;color:#3b0068;font-size:24px;margin-bottom:32px;">Dua Insan yang Berbahagia</h2>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+        <div style="background:white;border-radius:20px;padding:28px 22px;width:190px;box-shadow:0 8px 30px rgba(59,0,104,.1);border:1px solid #ede0ff;">
+          <div style="width:80px;height:80px;background:linear-gradient(135deg,#1a0047,#6a0dad);border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:34px;">🤵</div>
+          <h3 style="color:#1a0047;font-size:17px;margin-bottom:6px;font-family:Georgia,serif;">Muhammad Rizky</h3>
+          <div style="width:30px;height:2px;background:#6a0dad;margin:0 auto 10px;"></div>
+          <p style="color:#8b7a6b;font-size:12px;line-height:1.7;">Putra pertama dari<br><strong>Bpk. Ahmad Fauzi</strong><br>&amp; <strong>Ibu Sri Wahyuni</strong></p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;width:40px;">
+          <div style="font-size:28px;color:#c4a000;font-family:Georgia,serif;">&amp;</div>
+        </div>
+        <div style="background:white;border-radius:20px;padding:28px 22px;width:190px;box-shadow:0 8px 30px rgba(140,0,70,.1);border:1px solid #ffe0f0;">
+          <div style="width:80px;height:80px;background:linear-gradient(135deg,#8c0060,#e040a0);border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:34px;">👰</div>
+          <h3 style="color:#8c0060;font-size:17px;margin-bottom:6px;font-family:Georgia,serif;">Ayu Pratiwi</h3>
+          <div style="width:30px;height:2px;background:#e040a0;margin:0 auto 10px;"></div>
+          <p style="color:#8b7a6b;font-size:12px;line-height:1.7;">Putri pertama dari<br><strong>Bpk. Budi Santoso</strong><br>&amp; <strong>Ibu Rina Kusuma</strong></p>
+        </div>
+      </div>
+      <p style="margin-top:32px;font-style:italic;color:#8b6914;font-size:13px;line-height:1.8;">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu<br>isteri-isteri dari jenismu sendiri." — QS. Ar-Rum: 21</p>
+    </div>`,
+
+    /* 2 – Acara */
+    `<div style="background:#f8f3ff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#6a0dad;font-weight:600;margin-bottom:8px;">DETAIL ACARA</div>
+        <h2 style="font-family:Georgia,serif;color:#1a0047;font-size:22px;">Rangkaian Hari Bahagia</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:480px;margin:0 auto;">
+        <div style="background:white;border-radius:16px;padding:22px;border-left:4px solid #6a0dad;box-shadow:0 4px 16px rgba(106,13,173,.08);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-size:22px;">🕌</span><div><div style="font-weight:700;color:#1a0047;">Akad Nikah</div><div style="font-size:12px;color:#9580b0;">Sabtu, 14 Juni 2025</div></div></div>
+          <div style="font-size:13px;color:#5a4a6b;line-height:1.8;"><div>⏰ 08.00 – 10.00 WIB</div><div>📍 Masjid Al-Ikhlas, Jl. Melati No.12</div><div style="margin-top:8px;padding:8px 12px;background:#ede0ff;border-radius:8px;font-size:12px;font-weight:600;color:#6a0dad;text-align:center;cursor:pointer;">📍 Lihat di Google Maps</div></div>
+        </div>
+        <div style="background:white;border-radius:16px;padding:22px;border-left:4px solid #e040a0;box-shadow:0 4px 16px rgba(224,64,160,.08);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><span style="font-size:22px;">🥂</span><div><div style="font-weight:700;color:#8c0060;">Resepsi Pernikahan</div><div style="font-size:12px;color:#c47a9e;">Sabtu, 14 Juni 2025</div></div></div>
+          <div style="font-size:13px;color:#5a4a6b;line-height:1.8;"><div>⏰ 11.00 – 14.00 WIB</div><div>📍 Gedung Graha Indah, Jl. Sudirman No.45</div><div style="margin-top:8px;padding:8px 12px;background:#ffe0f4;border-radius:8px;font-size:12px;font-weight:600;color:#e040a0;text-align:center;cursor:pointer;">📍 Lihat di Google Maps</div></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#12002e,#3b0068);border-radius:16px;padding:20px;text-align:center;color:white;">
+          <div style="font-size:13px;opacity:.7;margin-bottom:6px;">Hitung Mundur Hari Bahagia</div>
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 14px;"><div style="font-size:22px;font-weight:700;">14</div><div style="font-size:10px;opacity:.7;">HARI</div></div>
+            <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 14px;"><div style="font-size:22px;font-weight:700;">08</div><div style="font-size:10px;opacity:.7;">JAM</div></div>
+            <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 14px;"><div style="font-size:22px;font-weight:700;">32</div><div style="font-size:10px;opacity:.7;">MENIT</div></div>
+          </div>
+        </div>
+      </div>
+    </div>`,
+
+    /* 3 – Galeri */
+    `<div style="background:#fff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#6a0dad;font-weight:600;margin-bottom:8px;">GALERI FOTO</div>
+        <h2 style="font-family:Georgia,serif;color:#1a0047;font-size:22px;">Momen Bersama Kami</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:480px;margin:0 auto;">
+        ${['#6a0dad','#e040a0','#3b0068','#c4a000','#8c0060','#4a1080','#d4007d','#1a0047','#8c6a00'].map((c,i)=>`<div style="background:linear-gradient(135deg,${c},${c}99);border-radius:10px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:28px;">${['💑','💐','🌹','📸','🥂','💒','🎊','💍','🌟'][i]}</div>`).join('')}
+      </div>
+      <p style="text-align:center;font-size:12px;color:#9580b0;margin-top:20px;font-style:italic;">✦ Foto akan ditampilkan dari album asli Anda ✦</p>
+    </div>`,
+
+    /* 4 – RSVP */
+    `<div style="background:#f8f3ff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#6a0dad;font-weight:600;margin-bottom:8px;">RSVP & UCAPAN</div>
+        <h2 style="font-family:Georgia,serif;color:#1a0047;font-size:22px;">Konfirmasi Kehadiran</h2>
+      </div>
+      <div style="background:white;border-radius:16px;padding:24px;max-width:440px;margin:0 auto 20px;box-shadow:0 4px 20px rgba(106,13,173,.08);">
+        <div style="margin-bottom:14px;"><label style="display:block;font-size:12px;font-weight:600;color:#5a4a6b;margin-bottom:5px;">Nama Tamu</label><div style="padding:10px 14px;background:#f8f3ff;border:1.5px solid #ddd0f5;border-radius:8px;font-size:13px;color:#9580b0;">Masukkan nama Anda...</div></div>
+        <div style="margin-bottom:14px;"><label style="display:block;font-size:12px;font-weight:600;color:#5a4a6b;margin-bottom:5px;">Kehadiran</label>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;padding:10px;background:#ede0ff;border:2px solid #6a0dad;border-radius:8px;text-align:center;font-size:13px;font-weight:600;color:#6a0dad;cursor:pointer;">✅ Hadir</div>
+            <div style="flex:1;padding:10px;background:#f8f3ff;border:1.5px solid #ddd0f5;border-radius:8px;text-align:center;font-size:13px;color:#9580b0;cursor:pointer;">❌ Tidak Hadir</div>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;"><label style="display:block;font-size:12px;font-weight:600;color:#5a4a6b;margin-bottom:5px;">Ucapan &amp; Doa</label><div style="padding:10px 14px;background:#f8f3ff;border:1.5px solid #ddd0f5;border-radius:8px;font-size:13px;color:#9580b0;height:72px;">Tulis ucapan bahagia...</div></div>
+        <button style="width:100%;padding:12px;background:linear-gradient(135deg,#6a0dad,#e040a0);color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;">Kirim Ucapan 💌</button>
+      </div>
+      <div style="background:white;border-radius:16px;padding:20px;max-width:440px;margin:0 auto;box-shadow:0 4px 20px rgba(106,13,173,.08);">
+        <div style="font-weight:700;color:#1a0047;margin-bottom:14px;font-size:14px;">💌 Ucapan Tamu</div>
+        ${[['Andi Wijaya','Selamat ya! Semoga menjadi keluarga sakinah mawaddah warahmah 🙏','2 jam lalu'],['Siti Rahayu','MasyaAllah, cantik banget acaranya! Barakallahu fiikuma 💝','5 jam lalu']].map(([n,m,t])=>`<div style="border-bottom:1px solid #f0e8ff;padding:10px 0;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;"><strong style="font-size:13px;color:#1a0047;">${n}</strong><span style="font-size:11px;color:#b0a0c0;">${t}</span></div><p style="font-size:12px;color:#6a5a7a;line-height:1.6;">${m}</p></div>`).join('')}
+      </div>
+    </div>`
+  ]
+},
+
+ultah:{
+  url:'craftoraweb.site/demo-ultah',
+  info:'🎂 Contoh: Website Ucapan Ulang Tahun',
+  tabs:['🎉 Opening','💌 Ucapan','📸 Galeri','⏳ Timeline'],
+  pages:[
+    /* 0 – Opening */
+    `<div style="background:linear-gradient(160deg,#0a0a2e,#1a1a6e,#2d2d9e);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,200,0,.12),transparent 60%);pointer-events:none;"></div>
+      <div style="font-size:50px;margin-bottom:10px;animation:pulse 1s infinite;">🎂</div>
+      <div style="font-size:12px;letter-spacing:5px;opacity:.6;font-weight:600;margin-bottom:12px;">SELAMAT ULANG TAHUN</div>
+      <h1 style="font-size:42px;font-family:Georgia,serif;margin-bottom:6px;text-shadow:0 2px 20px rgba(255,200,0,.3);">Bintang Cahaya</h1>
+      <div style="font-size:15px;opacity:.7;margin:10px 0;">ke-25 Tahun 🌟</div>
+      <div style="width:70px;height:2px;background:linear-gradient(90deg,transparent,#ffd700,transparent);margin:16px auto;"></div>
+      <p style="font-size:14px;opacity:.7;max-width:280px;line-height:1.8;">"Hari ini adalah hari istimewa yang hanya untukmu. Semoga semua harapanmu terwujud ✨"</p>
+      <div style="display:flex;gap:12px;margin-top:28px;">
+        <button style="padding:12px 24px;background:linear-gradient(135deg,#ffd700,#ff9500);color:#0a0a2e;border:none;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;">🎁 Buka Hadiah</button>
+        <button style="padding:12px 24px;background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;">🎵 Play Musik</button>
+      </div>
+      <div style="margin-top:32px;display:flex;gap:16px;font-size:11px;opacity:.5;">
+        <span>🎈 Dari: Sahabat Setia</span><span>📅 25 Mei 2026</span>
+      </div>
+    </div>`,
+
+    /* 1 – Ucapan */
+    `<div style="background:linear-gradient(180deg,#fff9e6,#fff);min-height:520px;padding:40px 24px;text-align:center;">
+      <div style="font-size:36px;margin-bottom:10px;">💌</div>
+      <div style="font-size:11px;letter-spacing:4px;color:#ff9500;font-weight:600;margin-bottom:8px;">PESAN SPESIAL</div>
+      <h2 style="font-family:Georgia,serif;color:#0a0a2e;font-size:22px;margin-bottom:24px;">Kata-Kata dari Hati</h2>
+      <div style="background:white;border-radius:20px;padding:28px;max-width:440px;margin:0 auto;box-shadow:0 8px 32px rgba(255,149,0,.12);border:1px solid #ffe0a0;">
+        <div style="font-size:32px;margin-bottom:16px;">🎂</div>
+        <p style="font-family:Georgia,serif;font-size:15px;line-height:1.9;color:#2a2a4e;font-style:italic;">"Happy Birthday, <strong>Bintang!</strong> 🌟<br><br>Semoga di hari ulang tahunmu yang ke-25 ini, semua doa dan impianmu terkabul. Kamu adalah cahaya yang selalu menerangi hari-hari kami.<br><br>Tetaplah bersinar, teruslah berkembang, dan jadilah versi terbaik dari dirimu sendiri. We love you so much! 💛"</p>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid #ffe0a0;font-size:13px;color:#ff9500;font-weight:600;">— Dari: Keluarga &amp; Sahabat Tersayang 💝</div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+        ${['🎂 Selamat Ulang Tahun!','🌟 Jadilah Bintang','💫 Semua Impian Terwujud','🎁 Penuh Berkah'].map(t=>`<span style="padding:8px 14px;background:#fff9e6;border:1.5px solid #ffe0a0;border-radius:100px;font-size:12px;color:#ff9500;font-weight:600;">${t}</span>`).join('')}
+      </div>
+    </div>`,
+
+    /* 2 – Galeri */
+    `<div style="background:#fff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#ff9500;font-weight:600;margin-bottom:8px;">GALERI KENANGAN</div>
+        <h2 style="font-family:Georgia,serif;color:#0a0a2e;font-size:22px;">Momen Tak Terlupakan</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:400px;margin:0 auto;">
+        ${[['🥳','Ulang Tahun ke-20','#ff6b6b'],['🏖️','Liburan Bersama','#48c9b0'],['🎓','Wisuda','#6c5ce7'],['👨‍👩‍👧','Momen Keluarga','#fd79a8'],['🎸','Hobi Musik','#fdcb6e'],['🌄','Petualangan Seru','#0984e3']].map(([e,l,c])=>`<div style="background:linear-gradient(135deg,${c},${c}aa);border-radius:14px;padding:20px;text-align:center;color:white;"><div style="font-size:32px;margin-bottom:8px;">${e}</div><div style="font-size:12px;font-weight:600;opacity:.9;">${l}</div></div>`).join('')}
+      </div>
+      <p style="text-align:center;font-size:12px;color:#b0a090;margin-top:20px;font-style:italic;">📸 Foto nyata akan ditampilkan dari koleksi Anda</p>
+    </div>`,
+
+    /* 3 – Timeline */
+    `<div style="background:#f0f4ff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#6c5ce7;font-weight:600;margin-bottom:8px;">PERJALANAN HIDUP</div>
+        <h2 style="font-family:Georgia,serif;color:#0a0a2e;font-size:22px;">25 Tahun Penuh Cerita</h2>
+      </div>
+      <div style="max-width:400px;margin:0 auto;position:relative;">
+        <div style="position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#6c5ce7,#fd79a8);"></div>
+        ${[['2001','Lahir ke Dunia','Hari pertama membawa kebahagiaan','👶','#6c5ce7'],['2007','Masuk SD','Petualangan belajar dimulai','📚','#0984e3'],['2013','SMP & Hobi Musik','Mulai cinta bermain gitar','🎸','#00b894'],['2019','Kuliah','Meraih gelar sarjana dengan bangga','🎓','#fd79a8'],['2025','Karir Cemerlang','Sukses membangun karir impian','🌟','#ff9500']].map(([y,t,d,e,c])=>`<div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;position:relative;">
+          <div style="width:56px;height:56px;background:${c};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px ${c}44;z-index:1;">${e}</div>
+          <div style="background:white;border-radius:14px;padding:14px 16px;flex:1;box-shadow:0 2px 10px rgba(0,0,0,.06);">
+            <div style="font-size:11px;color:${c};font-weight:700;margin-bottom:3px;">${y}</div>
+            <div style="font-weight:700;color:#0a0a2e;font-size:14px;margin-bottom:4px;">${t}</div>
+            <div style="font-size:12px;color:#6c6c8c;line-height:1.5;">${d}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`
+  ]
+},
+
+landing:{
+  url:'craftoraweb.site/demo-landing',
+  info:'🚀 Contoh: Website Landing Page Bisnis',
+  tabs:['🏠 Home','⚡ Layanan','💬 Testimoni','📞 Kontak'],
+  pages:[
+    /* 0 – Home */
+    `<div style="background:linear-gradient(160deg,#0f172a,#1e3a5f,#1D4ED8);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:40px 24px;">
+      <div style="display:inline-block;padding:6px 16px;background:rgba(255,255,255,.12);border-radius:100px;font-size:12px;font-weight:600;margin-bottom:18px;border:1px solid rgba(255,255,255,.2);">🚀 Terpercaya Sejak 2020</div>
+      <h1 style="font-size:36px;font-weight:800;line-height:1.2;margin-bottom:16px;">Solusi Digital<br><span style="background:linear-gradient(135deg,#60a5fa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Terbaik untuk Bisnis</span><br>Anda</h1>
+      <p style="font-size:15px;opacity:.75;max-width:340px;line-height:1.8;margin-bottom:28px;">Kami hadir untuk mempercepat pertumbuhan bisnis Anda dengan solusi digital yang inovatif dan terpercaya.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+        <button style="padding:13px 28px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:#fff;border:none;border-radius:100px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(29,78,216,.4);">Mulai Sekarang →</button>
+        <button style="padding:13px 28px;background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;">Lihat Portfolio</button>
+      </div>
+      <div style="display:flex;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);">
+        ${[['500+','Klien Puas'],['98%','Kepuasan'],['5★','Rating']].map(([n,l])=>`<div style="text-align:center;"><div style="font-size:22px;font-weight:800;">${n}</div><div style="font-size:11px;opacity:.6;">${l}</div></div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 1 – Layanan */
+    `<div style="background:#f8fafc;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">LAYANAN KAMI</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Apa yang Kami Tawarkan</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:480px;margin:0 auto;">
+        ${[['⚡','Digital Marketing','Strategi marketing digital yang tepat sasaran dan terukur'],['💻','Web Development','Website profesional, cepat, dan mobile-friendly'],['📊','Data Analytics','Analisis data mendalam untuk keputusan bisnis yang tepat'],['🎨','UI/UX Design','Desain yang indah dan pengalaman pengguna yang luar biasa']].map(([e,t,d])=>`<div style="background:white;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #e2e8f0;">
+          <div style="font-size:28px;margin-bottom:10px;">${e}</div>
+          <div style="font-weight:700;color:#0f172a;font-size:14px;margin-bottom:6px;">${t}</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.6;">${d}</div>
+          <div style="margin-top:12px;font-size:12px;color:#1D4ED8;font-weight:600;cursor:pointer;">Selengkapnya →</div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 2 – Testimoni */
+    `<div style="background:#fff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">TESTIMONI</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Kata Klien Kami</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto;">
+        ${[['Budi Santoso','Owner Toko Elektronik','⭐⭐⭐⭐⭐','Luar biasa! Penjualan online kami naik 3x lipat setelah menggunakan jasa mereka. Sangat profesional!','BS'],['Rina Kurnia','Manager Startup','⭐⭐⭐⭐⭐','Tim yang sangat responsif dan kreatif. Website baru kami mendapat banyak pujian dari pengunjung!','RK'],['Ahmad Fauzi','CEO Restaurant Chain','⭐⭐⭐⭐⭐','Investasi terbaik yang pernah kami lakukan. ROI sudah terasa dalam 2 bulan pertama.','AF']].map(([n,r,s,m,i])=>`<div style="background:#f8fafc;border-radius:16px;padding:18px;border:1px solid #e2e8f0;">
+          <div style="font-size:14px;margin-bottom:6px;">${s}</div>
+          <p style="font-size:13px;color:#334155;line-height:1.7;margin-bottom:12px;font-style:italic;">"${m}"</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;">${i}</div>
+            <div><div style="font-weight:700;font-size:13px;color:#0f172a;">${n}</div><div style="font-size:11px;color:#64748b;">${r}</div></div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 3 – Kontak */
+    `<div style="background:#f8fafc;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">HUBUNGI KAMI</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Konsultasi Gratis</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:480px;margin:0 auto 20px;">
+        ${[['📍','Lokasi','Jl. Sudirman No.45, Jakarta'],['📞','Telepon','+62 812-3456-7890'],['✉️','Email','hello@bisnis.com'],['⏰','Jam Kerja','Senin–Sabtu, 09–17 WIB']].map(([e,l,v])=>`<div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:22px;margin-bottom:6px;">${e}</div>
+          <div style="font-size:11px;color:#64748b;font-weight:600;margin-bottom:4px;">${l}</div>
+          <div style="font-size:12px;color:#334155;">${v}</div>
+        </div>`).join('')}
+      </div>
+      <div style="background:white;border-radius:16px;padding:22px;max-width:480px;margin:0 auto;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #e2e8f0;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div style="padding:10px 12px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;color:#94a3b8;">Nama Lengkap</div>
+          <div style="padding:10px 12px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;color:#94a3b8;">No. WhatsApp</div>
+        </div>
+        <div style="padding:10px 12px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;color:#94a3b8;margin-bottom:10px;">Subjek Pesan</div>
+        <div style="padding:10px 12px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;color:#94a3b8;height:70px;margin-bottom:14px;">Tulis pesan Anda...</div>
+        <button style="width:100%;padding:12px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;">Kirim Pesan 📨</button>
+      </div>
+    </div>`
+  ]
+},
+
+company:{
+  url:'craftoraweb.site/demo-company',
+  info:'🏢 Contoh: Website Company Profile / UMKM',
+  tabs:['🏠 Home','🏢 Tentang','⚙️ Layanan','🖼️ Galeri','📞 Kontak'],
+  pages:[
+    /* 0 – Home */
+    `<div style="background:linear-gradient(160deg,#0f172a,#1a2744);min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:36px 24px 28px;">
+      <div style="font-size:13px;letter-spacing:3px;opacity:.6;font-weight:600;margin-bottom:10px;">PT. MAJU BERSAMA INDONESIA</div>
+      <h1 style="font-size:30px;font-weight:800;line-height:1.2;margin-bottom:14px;">Solusi Terbaik<br>untuk Industri Anda</h1>
+      <p style="font-size:13px;opacity:.7;max-width:320px;line-height:1.7;margin-bottom:24px;">Kami adalah perusahaan teknologi terdepan yang telah melayani lebih dari 1000 klien di seluruh Indonesia.</p>
+      <div style="display:flex;gap:10px;"><button style="padding:11px 24px;background:#1D4ED8;color:#fff;border:none;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;">Hubungi Kami</button><button style="padding:11px 24px;background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;">Profil Perusahaan</button></div>
+    </div>
+    <div style="background:#fff;padding:28px 20px;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:480px;margin:0 auto;">
+        ${[['1000+','Klien','#1D4ED8'],['15','Tahun','#10B981'],['50+','Tim Ahli','#F59E0B']].map(([n,l,c])=>`<div style="background:${c}0d;border-radius:14px;padding:18px;text-align:center;border:1px solid ${c}22;"><div style="font-size:24px;font-weight:800;color:${c};">${n}</div><div style="font-size:11px;color:#64748b;font-weight:600;">${l}</div></div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 1 – Tentang */
+    `<div style="background:#f8fafc;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">TENTANG KAMI</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Siapa Kami?</h2>
+      </div>
+      <div style="background:white;border-radius:16px;padding:24px;max-width:480px;margin:0 auto 16px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #e2e8f0;">
+        <p style="font-size:13px;color:#334155;line-height:1.9;">PT. Maju Bersama Indonesia didirikan pada tahun 2009 dengan visi menjadi mitra teknologi terpercaya bagi bisnis di Indonesia. Kami berkomitmen menghadirkan solusi inovatif yang mendorong pertumbuhan bisnis klien kami.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:480px;margin:0 auto;">
+        ${[['🎯','Visi','Menjadi perusahaan teknologi terdepan di Asia Tenggara','#1D4ED8'],['🌟','Misi','Menghadirkan solusi inovatif dan berkelanjutan','#10B981'],['💎','Nilai','Integritas, Inovasi, dan Kemitraan jangka panjang','#6c5ce7'],['🏆','Pencapaian','Penghargaan Best Tech Company 2023','#F59E0B']].map(([e,t,d,c])=>`<div style="background:white;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05);border:1px solid #e2e8f0;">
+          <div style="font-size:24px;margin-bottom:8px;">${e}</div>
+          <div style="font-weight:700;color:${c};font-size:13px;margin-bottom:6px;">${t}</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.5;">${d}</div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 2 – Layanan */
+    `<div style="background:#fff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:28px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">LAYANAN</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Keahlian Kami</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto;">
+        ${[['💻','Software Development','Pengembangan aplikasi web dan mobile kustom sesuai kebutuhan bisnis Anda.','#1D4ED8'],['☁️','Cloud Solutions','Infrastruktur cloud yang andal, skalabel, dan aman untuk bisnis modern.','#10B981'],['🔒','Cybersecurity','Perlindungan data dan sistem bisnis dari ancaman siber terkini.','#EF4444'],['📊','Business Intelligence','Transformasi data mentah menjadi insight bisnis yang berharga.','#F59E0B']].map(([e,t,d,c])=>`<div style="background:#f8fafc;border-radius:16px;padding:18px;border:1px solid #e2e8f0;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:46px;height:46px;background:${c}15;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">${e}</div>
+          <div><div style="font-weight:700;color:#0f172a;font-size:14px;margin-bottom:4px;">${t}</div><div style="font-size:12px;color:#64748b;line-height:1.6;">${d}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 3 – Galeri */
+    `<div style="background:#f8fafc;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">PORTFOLIO</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Proyek Kami</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:480px;margin:0 auto;">
+        ${[['🏦','Sistem Perbankan Digital','Fintech · 2024','#1D4ED8'],['🏥','Aplikasi Kesehatan','Healthtech · 2024','#10B981'],['🛒','Platform E-commerce','Retail · 2023','#6c5ce7'],['🎓','LMS Pendidikan','Edutech · 2023','#F59E0B'],['🏭','ERP Manufaktur','Industry · 2022','#EF4444'],['🚗','Sistem Logistik','Transport · 2022','#0984e3']].map(([e,t,c,col])=>`<div style="background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);border:1px solid #e2e8f0;">
+          <div style="background:linear-gradient(135deg,${col},${col}88);padding:28px;text-align:center;font-size:36px;">${e}</div>
+          <div style="padding:12px;"><div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:3px;">${t}</div><div style="font-size:11px;color:#64748b;">${c}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 4 – Kontak */
+    `<div style="background:#fff;min-height:520px;padding:36px 20px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#1D4ED8;font-weight:600;margin-bottom:8px;">KONTAK</div>
+        <h2 style="color:#0f172a;font-size:22px;font-weight:800;">Hubungi Kami</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:480px;margin:0 auto 20px;">
+        ${[['🏢','Kantor Pusat','Gedung Menara Indah Lt.15, Jl. Gatot Subroto No.99, Jakarta Selatan'],['📞','Telepon','(021) 5555-9999 | +62 811-2233-4455'],['✉️','Email','info@majubersama.co.id | support@majubersama.co.id'],['🕐','Jam Operasional','Senin – Jumat: 08:00 – 17:00 WIB']].map(([e,l,v])=>`<div style="background:#f8fafc;border-radius:14px;padding:16px;border:1px solid #e2e8f0;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:40px;height:40px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">${e}</div>
+          <div><div style="font-size:11px;font-weight:700;color:#1D4ED8;margin-bottom:3px;">${l}</div><div style="font-size:12px;color:#334155;line-height:1.5;">${v}</div></div>
+        </div>`).join('')}
+      </div>
+      <div style="background:linear-gradient(135deg,#1D4ED8,#3B82F6);border-radius:16px;padding:20px;max-width:480px;margin:0 auto;text-align:center;color:white;">
+        <div style="font-size:20px;margin-bottom:8px;">💬</div>
+        <div style="font-weight:700;margin-bottom:6px;">Konsultasi Gratis via WhatsApp</div>
+        <div style="font-size:12px;opacity:.8;margin-bottom:14px;">Respons cepat di jam kerja</div>
+        <button style="padding:11px 28px;background:white;color:#1D4ED8;border:none;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;">Chat WhatsApp 📱</button>
+      </div>
+    </div>`
+  ]
+},
+
+katalog:{
+  url:'craftoraweb.site/demo-katalog',
+  info:'🛍️ Contoh: Website Katalog & Toko Online',
+  tabs:['🏠 Home','📦 Produk','🔍 Detail','📱 Order WA'],
+  pages:[
+    /* 0 – Home */
+    `<div style="background:#fff;min-height:520px;">
+      <div style="background:linear-gradient(135deg,#10B981,#059669);padding:28px 20px 36px;color:white;text-align:center;">
+        <div style="font-size:22px;font-weight:800;margin-bottom:4px;">🛍️ Toko Baju Kita</div>
+        <div style="font-size:12px;opacity:.8;margin-bottom:16px;">Fashion Kekinian · Harga Terjangkau</div>
+        <div style="background:rgba(255,255,255,.2);border-radius:100px;padding:10px 16px;display:flex;align-items:center;gap:10px;max-width:320px;margin:0 auto;">
+          <span style="font-size:14px;opacity:.8;">🔍</span>
+          <span style="font-size:13px;opacity:.7;">Cari produk favoritmu...</span>
+        </div>
+      </div>
+      <div style="padding:16px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;">
+        ${['Semua','Baju Pria','Baju Wanita','Aksesoris','Promo'].map((c,i)=>`<button style="padding:8px 16px;background:${i===0?'#10B981':'#f1f5f9'};color:${i===0?'white':'#64748b'};border:none;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;">${c}</button>`).join('')}
+      </div>
+      <div style="padding:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        ${[['👕','Kemeja Batik Modern','Rp 85.000','⭐ 4.9 (128)','#f0fdf4'],['👗','Dress Floral Premium','Rp 125.000','⭐ 4.8 (96)','#fff0fb'],['👔','Polo Shirt Casual','Rp 75.000','⭐ 4.7 (204)','#eff6ff'],['🧥','Jaket Hoodie Trendy','Rp 189.000','⭐ 5.0 (67)','#fff7ed']].map(([e,n,p,r,bg])=>`<div style="background:white;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);">
+          <div style="background:${bg};padding:24px;text-align:center;font-size:40px;">${e}</div>
+          <div style="padding:12px;">
+            <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:3px;">${n}</div>
+            <div style="font-size:11px;color:#64748b;margin-bottom:6px;">${r}</div>
+            <div style="font-weight:800;font-size:15px;color:#10B981;">${p}</div>
+            <button style="width:100%;margin-top:8px;padding:7px;background:#10B981;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">+ Keranjang</button>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 1 – Produk */
+    `<div style="background:#f8fafc;min-height:520px;padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div><div style="font-weight:800;color:#0f172a;font-size:16px;">Semua Produk</div><div style="font-size:12px;color:#64748b;">24 produk tersedia</div></div>
+        <div style="display:flex;gap:8px;"><button style="padding:7px 12px;background:white;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;color:#64748b;cursor:pointer;">🔽 Filter</button><button style="padding:7px 12px;background:white;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;color:#64748b;cursor:pointer;">↕️ Urutkan</button></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        ${[['👕','Kemeja Batik','Rp 85rb','#f0fdf4'],['👗','Dress Floral','Rp 125rb','#fff0fb'],['👔','Polo Shirt','Rp 75rb','#eff6ff'],['🧥','Jaket Hoodie','Rp 189rb','#fff7ed'],['👖','Celana Jeans','Rp 145rb','#f0f4ff'],['👒','Topi Vintage','Rp 65rb','#fefce8'],['👜','Tas Selempang','Rp 95rb','#fdf2f8'],['🧣','Scarf Premium','Rp 55rb','#f0fdf4'],['👟','Sepatu Sneaker','Rp 235rb','#eff6ff']].map(([e,n,p,bg])=>`<div style="background:white;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;">
+          <div style="background:${bg};padding:16px;text-align:center;font-size:28px;">${e}</div>
+          <div style="padding:8px;"><div style="font-size:11px;font-weight:600;color:#0f172a;margin-bottom:2px;">${n}</div><div style="font-size:11px;font-weight:700;color:#10B981;">${p}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 2 – Detail Produk */
+    `<div style="background:#fff;min-height:520px;">
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);padding:36px 20px;text-align:center;">
+        <div style="font-size:72px;margin-bottom:12px;">👕</div>
+        <div style="display:flex;gap:6px;justify-content:center;margin-bottom:8px;">
+          ${['#10B981','#6366f1','#f59e0b','#ef4444'].map(c=>`<div style="width:20px;height:20px;background:${c};border-radius:50%;cursor:pointer;"></div>`).join('')}
+        </div>
+        <div style="font-size:12px;color:#64748b;">Pilih Warna</div>
+      </div>
+      <div style="padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <h2 style="font-size:18px;font-weight:800;color:#0f172a;">Kemeja Batik Modern</h2>
+          <div style="font-size:20px;cursor:pointer;">🤍</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <span style="font-size:14px;">⭐⭐⭐⭐⭐</span>
+          <span style="font-size:12px;color:#64748b;">4.9 (128 ulasan)</span>
+        </div>
+        <div style="font-size:24px;font-weight:800;color:#10B981;margin-bottom:12px;">Rp 85.000</div>
+        <div style="margin-bottom:12px;"><div style="font-size:12px;font-weight:600;color:#64748b;margin-bottom:8px;">UKURAN:</div><div style="display:flex;gap:6px;">
+          ${['S','M','L','XL','XXL'].map((s,i)=>`<button style="width:38px;height:38px;border:2px solid ${i===1?'#10B981':'#e2e8f0'};border-radius:8px;background:${i===1?'#10B981':'white'};color:${i===1?'white':'#64748b'};font-size:12px;font-weight:600;cursor:pointer;">${s}</button>`).join('')}
+        </div></div>
+        <div style="margin-bottom:16px;font-size:12px;color:#64748b;line-height:1.7;">Material premium 100% katun yang adem dan nyaman dipakai seharian. Motif batik modern yang elegan cocok untuk casual maupun semi-formal.</div>
+        <div style="display:flex;gap:10px;">
+          <button style="flex:1;padding:12px;background:#10B981;color:white;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;">🛒 Beli Sekarang</button>
+          <button style="padding:12px 16px;background:#25D366;color:white;border:none;border-radius:12px;font-size:14px;cursor:pointer;">💬</button>
+        </div>
+      </div>
+    </div>`,
+
+    /* 3 – Order WA */
+    `<div style="background:#f0fdf4;min-height:520px;padding:36px 20px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:12px;">💬</div>
+      <div style="font-size:11px;letter-spacing:4px;color:#10B981;font-weight:600;margin-bottom:8px;">PEMESANAN MUDAH</div>
+      <h2 style="color:#0f172a;font-size:22px;font-weight:800;margin-bottom:8px;">Order via WhatsApp</h2>
+      <p style="font-size:13px;color:#64748b;max-width:320px;margin:0 auto 24px;line-height:1.7;">Proses pesan lebih mudah dan cepat langsung via WhatsApp. Admin kami siap melayani dengan ramah!</p>
+      <div style="background:white;border-radius:16px;padding:20px;max-width:360px;margin:0 auto 20px;box-shadow:0 4px 20px rgba(16,185,129,.1);border:1px solid #bbf7d0;text-align:left;">
+        <div style="font-weight:700;font-size:14px;color:#0f172a;margin-bottom:14px;">📋 Format Pemesanan:</div>
+        <div style="background:#f0fdf4;border-radius:10px;padding:14px;font-size:12px;color:#334155;line-height:2;font-family:monospace;">Halo Admin Toko Baju Kita!<br>🛍️ Saya ingin order:<br><br>Nama: [nama Anda]<br>Produk: Kemeja Batik Modern<br>Ukuran: M<br>Warna: Hijau<br>Jumlah: 2 pcs<br>Alamat: [alamat lengkap]</div>
+      </div>
+      <button style="padding:14px 36px;background:linear-gradient(135deg,#25D366,#128C7E);color:white;border:none;border-radius:100px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(37,211,102,.3);">💬 Chat WhatsApp Sekarang</button>
+      <p style="font-size:11px;color:#64748b;margin-top:14px;">⏰ Respons cepat Senin–Sabtu 08:00–21:00 WIB</p>
+    </div>`
+  ]
+},
+
+admin:{
+  url:'craftoraweb.site/demo-admin',
+  info:'🖥️ Contoh: Website Admin Panel / CRUD System',
+  tabs:['🔐 Login','📊 Dashboard','📦 Kelola Produk','➕ Tambah Data'],
+  pages:[
+    /* 0 – Login */
+    `<div style="background:linear-gradient(160deg,#0f172a,#1e3a5f);min-height:520px;display:flex;align-items:center;justify-content:center;padding:40px 20px;">
+      <div style="background:white;border-radius:20px;padding:36px 32px;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,.4);">
+        <div style="text-align:center;margin-bottom:28px;">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:24px;">🖥️</div>
+          <h2 style="font-size:20px;font-weight:800;color:#0f172a;margin-bottom:4px;">Admin Panel</h2>
+          <p style="font-size:12px;color:#64748b;">Masuk ke dashboard pengelola</p>
+        </div>
+        <div style="margin-bottom:14px;"><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;">Username</label><div style="padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:13px;color:#94a3b8;background:#f8fafc;">admin@bisnis.com</div></div>
+        <div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;">Password</label><div style="padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:13px;color:#94a3b8;background:#f8fafc;">••••••••</div></div>
+        <button style="width:100%;padding:13px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.3);">Masuk ke Dashboard</button>
+        <p style="text-align:center;font-size:12px;color:#64748b;margin-top:16px;">Lupa password? <span style="color:#1D4ED8;cursor:pointer;font-weight:600;">Reset di sini</span></p>
+      </div>
+    </div>`,
+
+    /* 1 – Dashboard */
+    `<div style="background:#f1f5f9;min-height:520px;">
+      <div style="background:linear-gradient(135deg,#1D4ED8,#3B82F6);padding:16px 20px;color:white;display:flex;justify-content:space-between;align-items:center;">
+        <div><div style="font-weight:700;font-size:14px;">🖥️ Admin Panel</div><div style="font-size:11px;opacity:.7;">Selamat datang, Admin</div></div>
+        <div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;">👤</div>
+      </div>
+      <div style="padding:16px;">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;">
+          ${[['📦','Total Produk','124 item','#1D4ED8'],['🛒','Pesanan Hari Ini','28','#10B981'],['💰','Pendapatan','Rp 4.2jt','#F59E0B'],['👥','Pengunjung','312','#6c5ce7']].map(([e,l,v,c])=>`<div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;"><div style="font-size:10px;font-weight:600;color:#64748b;text-transform:uppercase;">${l}</div><div style="font-size:18px;">${e}</div></div>
+            <div style="font-size:20px;font-weight:800;color:${c};">${v}</div>
+          </div>`).join('')}
+        </div>
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:12px;">
+          <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:12px;">📈 Grafik Penjualan (Contoh)</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:80px;">
+            ${[40,65,45,80,60,90,75].map((h,i)=>`<div style="flex:1;background:${i===5?'#1D4ED8':'#bfdbfe'};border-radius:4px 4px 0 0;height:${h}%;"></div>`).join('')}
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            ${['Sen','Sel','Rab','Kam','Jum','Sab','Min'].map(d=>`<div style="font-size:9px;color:#94a3b8;flex:1;text-align:center;">${d}</div>`).join('')}
+          </div>
+        </div>
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:10px;">🕐 Aktivitas Terbaru</div>
+          ${[['Pesanan #1042 masuk','2 menit lalu','🛒'],['Stok Kemeja Batik berkurang','15 menit lalu','📦'],['Pembayaran diterima Rp 125rb','1 jam lalu','💰']].map(([t,w,e])=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9;"><span style="font-size:16px;">${e}</span><div style="flex:1;"><div style="font-size:12px;color:#0f172a;font-weight:500;">${t}</div><div style="font-size:10px;color:#94a3b8;">${w}</div></div></div>`).join('')}
+        </div>
+      </div>
+    </div>`,
+
+    /* 2 – Kelola Produk */
+    `<div style="background:#f1f5f9;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-weight:700;font-size:14px;color:#0f172a;">📦 Kelola Produk</div>
+        <button style="padding:8px 14px;background:#1D4ED8;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">+ Tambah</button>
+      </div>
+      <div style="padding:14px 16px;">
+        <div style="background:white;border-radius:10px;padding:10px 12px;border:1.5px solid #e2e8f0;margin-bottom:12px;display:flex;align-items:center;gap:8px;"><span style="font-size:14px;color:#94a3b8;">🔍</span><span style="font-size:13px;color:#94a3b8;">Cari produk...</span></div>
+        <div style="background:white;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 80px;padding:10px 14px;background:#f8fafc;border-bottom:1px solid #e2e8f0;">
+            ${['Produk','Stok','Harga','Aksi'].map(h=>`<div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;">${h}</div>`).join('')}
+          </div>
+          ${[['👕 Kemeja Batik','45','Rp 85rb'],['👗 Dress Floral','23','Rp 125rb'],['👔 Polo Shirt','67','Rp 75rb'],['🧥 Jaket Hoodie','12','Rp 189rb'],['👖 Celana Jeans','31','Rp 145rb']].map(([n,s,p])=>`<div style="display:grid;grid-template-columns:2fr 1fr 1fr 80px;padding:12px 14px;border-bottom:1px solid #f1f5f9;align-items:center;">
+            <div style="font-size:12px;font-weight:600;color:#0f172a;">${n}</div>
+            <div style="font-size:12px;color:${parseInt(s)<20?'#ef4444':'#10B981'};font-weight:600;">${s}</div>
+            <div style="font-size:12px;color:#334155;">${p}</div>
+            <div style="display:flex;gap:4px;"><button style="padding:4px 8px;background:#EFF6FF;color:#1D4ED8;border:none;border-radius:6px;font-size:10px;cursor:pointer;">Edit</button><button style="padding:4px 8px;background:#FEF2F2;color:#EF4444;border:none;border-radius:6px;font-size:10px;cursor:pointer;">Del</button></div>
+          </div>`).join('')}
+        </div>
+        <div style="text-align:center;padding:12px;font-size:12px;color:#64748b;">Menampilkan 5 dari 124 produk</div>
+      </div>
+    </div>`,
+
+    /* 3 – Tambah Data */
+    `<div style="background:#f1f5f9;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;"><div style="font-weight:700;font-size:14px;color:#0f172a;">➕ Tambah Produk Baru</div></div>
+      <div style="padding:16px;">
+        <div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          ${[['Nama Produk','Kemeja Batik Modern'],['Kategori','Baju Pria'],['Harga','85000'],['Stok Tersedia','50']].map(([l,ph])=>`<div style="margin-bottom:12px;"><label style="display:block;font-size:11px;font-weight:700;color:#374151;text-transform:uppercase;margin-bottom:5px;">${l}</label><div style="padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;color:#94a3b8;background:#f8fafc;">${ph}</div></div>`).join('')}
+          <div style="margin-bottom:12px;"><label style="display:block;font-size:11px;font-weight:700;color:#374151;text-transform:uppercase;margin-bottom:5px;">Deskripsi Produk</label><div style="padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;color:#94a3b8;background:#f8fafc;height:60px;">Tulis deskripsi produk...</div></div>
+          <div style="margin-bottom:16px;"><label style="display:block;font-size:11px;font-weight:700;color:#374151;text-transform:uppercase;margin-bottom:5px;">Foto Produk</label><div style="border:2px dashed #bfdbfe;border-radius:10px;padding:20px;text-align:center;background:#eff6ff;cursor:pointer;"><div style="font-size:24px;margin-bottom:4px;">📸</div><div style="font-size:12px;color:#1D4ED8;font-weight:600;">Klik untuk upload foto</div></div></div>
+          <div style="display:flex;gap:10px;">
+            <button style="flex:1;padding:12px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;">💾 Simpan Produk</button>
+            <button style="padding:12px 16px;background:#f1f5f9;color:#64748b;border:1px solid #e2e8f0;border-radius:10px;font-size:13px;cursor:pointer;">Batal</button>
+          </div>
+        </div>
+      </div>
+    </div>`
+  ]
+},
+
+kasir:{
+  url:'craftoraweb.site/demo-kasir',
+  info:'🧾 Contoh: Website Kasir Kafe / POS QRIS',
+  tabs:['🍽️ Menu','🛒 Keranjang','📲 QRIS','🧾 Struk','📈 Laporan'],
+  pages:[
+    /* 0 – Pilih Menu */
+    `<div style="background:#fff;min-height:520px;">
+      <div style="background:linear-gradient(135deg,#7c3aed,#a855f7);padding:14px 16px;color:white;display:flex;justify-content:space-between;align-items:center;">
+        <div><div style="font-weight:700;font-size:14px;">☕ Kafe Santai</div><div style="font-size:11px;opacity:.7;">Meja #3 · 2 Tamu</div></div>
+        <div style="background:rgba(255,255,255,.2);border-radius:100px;padding:5px 12px;font-size:12px;font-weight:600;">🛒 3 item</div>
+      </div>
+      <div style="padding:12px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;">
+        ${['Semua','Kopi','Non-Kopi','Makanan','Snack'].map((c,i)=>`<button style="padding:7px 14px;background:${i===0?'#7c3aed':'#f3f4f6'};color:${i===0?'white':'#64748b'};border:none;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;">${c}</button>`).join('')}
+      </div>
+      <div style="padding:0 16px 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        ${[['☕','Kopi Susu Aren','Rp 22.000','Terlaris 🔥','#fdf4ff'],['🧋','Matcha Latte','Rp 28.000','Baru ✨','#f0fdf4'],['🍫','Cokelat Panas','Rp 20.000','','#fff7ed'],['🥤','Es Teh Lemon','Rp 15.000','','#eff6ff'],['🥐','Croissant Butter','Rp 18.000','','#fefce8'],['🥗','Salad Bowl','Rp 32.000','Sehat 💚','#f0fdf4']].map(([e,n,p,t,bg])=>`<div style="background:white;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.04);">
+          <div style="background:${bg};padding:20px;text-align:center;font-size:36px;position:relative;">${e}${t?`<div style="position:absolute;top:8px;right:8px;background:#7c3aed;color:white;font-size:9px;padding:2px 6px;border-radius:100px;font-weight:600;">${t}</div>`:''}</div>
+          <div style="padding:10px;">
+            <div style="font-size:12px;font-weight:600;color:#0f172a;margin-bottom:4px;">${n}</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:13px;font-weight:700;color:#7c3aed;">${p}</span><button style="width:26px;height:26px;background:#7c3aed;color:white;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-weight:700;">+</button></div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 1 – Keranjang */
+    `<div style="background:#f8fafc;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;font-weight:700;font-size:14px;color:#0f172a;">🛒 Keranjang Pesanan</div>
+      <div style="padding:16px;">
+        ${[['☕','Kopi Susu Aren','Rp 22.000',2,'#fdf4ff'],['🧋','Matcha Latte','Rp 28.000',1,'#f0fdf4'],['🥐','Croissant Butter','Rp 18.000',2,'#fefce8']].map(([e,n,p,q,bg])=>`<div style="background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;display:flex;gap:12px;align-items:center;">
+          <div style="width:50px;height:50px;background:${bg};border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">${e}</div>
+          <div style="flex:1;">
+            <div style="font-weight:600;font-size:13px;color:#0f172a;margin-bottom:3px;">${n}</div>
+            <div style="font-size:13px;font-weight:700;color:#7c3aed;">${p}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;"><button style="width:26px;height:26px;border:1px solid #e2e8f0;background:white;border-radius:6px;font-size:14px;cursor:pointer;">−</button><span style="font-size:14px;font-weight:700;color:#0f172a;">${q}</span><button style="width:26px;height:26px;background:#7c3aed;color:white;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-weight:700;">+</button></div>
+        </div>`).join('')}
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;margin-top:4px;">
+          ${[['Subtotal','Rp 108.000'],['Diskon Member','- Rp 5.000'],['Pajak (5%)','Rp 5.150']].map(([l,v])=>`<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;"><span style="color:#64748b;">${l}</span><span style="font-weight:600;color:#0f172a;">${v}</span></div>`).join('')}
+          <div style="border-top:2px solid #e2e8f0;margin:10px 0 10px;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;"><span>TOTAL</span><span style="color:#7c3aed;">Rp 108.150</span></div>
+        </div>
+        <button style="width:100%;margin-top:14px;padding:14px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(124,58,237,.3);">Lanjut ke Pembayaran →</button>
+      </div>
+    </div>`,
+
+    /* 2 – QRIS */
+    `<div style="background:#f8fafc;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 20px;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:11px;letter-spacing:4px;color:#7c3aed;font-weight:600;margin-bottom:8px;">PEMBAYARAN QRIS</div>
+        <h2 style="color:#0f172a;font-size:20px;font-weight:800;">Scan untuk Bayar</h2>
+        <p style="font-size:13px;color:#64748b;margin-top:4px;">Total: <strong style="color:#7c3aed;">Rp 108.150</strong></p>
+      </div>
+      <div style="background:white;border-radius:20px;padding:24px;box-shadow:0 8px 32px rgba(124,58,237,.15);border:2px solid #e9d5ff;margin-bottom:20px;text-align:center;">
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;width:200px;margin:0 auto 16px;">
+          ${Array.from({length:49},(_,i)=>`<div style="width:26px;height:26px;background:${Math.random()>.5?'#1a1a2e':'white'};border-radius:${[0,6,42,48].includes(i)?'4px':'2px'};"></div>`).join('')}
+        </div>
+        <div style="font-size:11px;color:#7c3aed;font-weight:600;margin-bottom:4px;">QRIS · Kafe Santai</div>
+        <div style="font-size:10px;color:#94a3b8;">Berlaku hingga: 13:45:22</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;">
+        ${['GoPay','OVO','Dana','BCA Mobile','Mandiri'].map(m=>`<div style="padding:6px 12px;background:white;border:1px solid #e9d5ff;border-radius:8px;font-size:11px;font-weight:600;color:#7c3aed;">${m}</div>`).join('')}
+      </div>
+      <div style="background:#f3e8ff;border-radius:12px;padding:12px 16px;max-width:320px;text-align:center;font-size:12px;color:#7c3aed;line-height:1.7;">Buka aplikasi e-wallet Anda → Pilih Scan QR → Arahkan ke kode di atas → Konfirmasi pembayaran</div>
+    </div>`,
+
+    /* 3 – Struk */
+    `<div style="background:#f8fafc;min-height:520px;padding:24px 20px;display:flex;justify-content:center;">
+      <div style="background:white;border-radius:16px;padding:24px;max-width:360px;width:100%;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #e2e8f0;">
+        <div style="text-align:center;border-bottom:2px dashed #e2e8f0;padding-bottom:16px;margin-bottom:16px;">
+          <div style="font-size:24px;margin-bottom:6px;">☕</div>
+          <div style="font-weight:800;font-size:16px;color:#0f172a;">KAFE SANTAI</div>
+          <div style="font-size:11px;color:#64748b;">Jl. Kopi No.7 · @kafesantai</div>
+          <div style="margin-top:8px;font-size:11px;color:#94a3b8;">No. Transaksi: #TXN-20260525-042<br>25 Mei 2026 · 13:42 WIB · Meja 3</div>
+        </div>
+        ${[['Kopi Susu Aren','2','Rp 44.000'],['Matcha Latte','1','Rp 28.000'],['Croissant Butter','2','Rp 36.000']].map(([n,q,t])=>`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;">
+          <span style="color:#334155;">${n} <span style="color:#94a3b8;">x${q}</span></span><span style="font-weight:600;color:#0f172a;">${t}</span>
+        </div>`).join('')}
+        <div style="border-top:2px dashed #e2e8f0;margin:12px 0;padding-top:12px;">
+          ${[['Subtotal','Rp 108.000'],['Diskon Member','- Rp 5.000'],['Pajak 5%','Rp 5.150']].map(([l,v])=>`<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;color:#64748b;"><span>${l}</span><span>${v}</span></div>`).join('')}
+          <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:800;color:#0f172a;margin-top:8px;"><span>TOTAL</span><span>Rp 108.150</span></div>
+        </div>
+        <div style="background:#f0fdf4;border-radius:10px;padding:10px;text-align:center;font-size:12px;color:#10B981;font-weight:600;">✅ LUNAS · QRIS GoPay</div>
+        <div style="text-align:center;margin-top:14px;font-size:11px;color:#94a3b8;line-height:1.8;">Terima kasih telah berkunjung!<br>Scan kode di bawah untuk review di Google 😊</div>
+      </div>
+    </div>`,
+
+    /* 4 – Laporan */
+    `<div style="background:#f8fafc;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;font-weight:700;font-size:14px;color:#0f172a;">📈 Laporan Penjualan</div>
+      <div style="padding:16px;">
+        <div style="display:flex;gap:8px;margin-bottom:14px;">
+          ${['Hari Ini','Minggu Ini','Bulan Ini'].map((t,i)=>`<button style="padding:7px 14px;background:${i===0?'#7c3aed':'#f3f4f6'};color:${i===0?'white':'#64748b'};border:none;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;">${t}</button>`).join('')}
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;">
+          ${[['💰','Total Pendapatan','Rp 2.840.500','#7c3aed'],['🧾','Jumlah Transaksi','47 transaksi','#10B981'],['☕','Menu Terlaris','Kopi Susu Aren','#F59E0B'],['⭐','Rating Rata-rata','4.9 / 5.0','#6c5ce7']].map(([e,l,v,c])=>`<div style="background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+            <div style="font-size:10px;font-weight:600;color:#64748b;text-transform:uppercase;margin-bottom:6px;">${e} ${l}</div>
+            <div style="font-size:15px;font-weight:800;color:${c};">${v}</div>
+          </div>`).join('')}
+        </div>
+        <div style="background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:12px;">
+          <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:12px;">📊 Penjualan per Jam</div>
+          <div style="display:flex;align-items:flex-end;gap:4px;height:70px;">
+            ${[10,20,45,80,70,95,100,85,60,40,30,20].map((h,i)=>`<div style="flex:1;background:${h===100?'#7c3aed':'#e9d5ff'};border-radius:3px 3px 0 0;height:${h}%;"></div>`).join('')}
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            ${['08','09','10','11','12','13','14','15','16','17','18','19'].map(h=>`<div style="font-size:8px;color:#94a3b8;flex:1;text-align:center;">${h}</div>`).join('')}
+          </div>
+        </div>
+        <button style="width:100%;padding:12px;background:#f3f4f6;color:#64748b;border:1px solid #e2e8f0;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;">📥 Download Laporan PDF</button>
+      </div>
+    </div>`
+  ]
+},
+
+ecommerce:{
+  url:'craftoraweb.site/demo-ecommerce',
+  info:'🛒 Contoh: Website E-Commerce dengan Payment Gateway',
+  tabs:['🛍️ Produk','🛒 Keranjang','💳 Checkout','✅ Invoice'],
+  pages:[
+    /* 0 – Produk */
+    `<div style="background:#fff;min-height:520px;">
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a5f);padding:14px 16px;color:white;display:flex;justify-content:space-between;align-items:center;">
+        <div><div style="font-weight:800;font-size:15px;">⚡ TechStore</div><div style="font-size:11px;opacity:.6;">Gadget & Elektronik Terpercaya</div></div>
+        <div style="position:relative;font-size:20px;cursor:pointer;">🛒<div style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:#ef4444;border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700;">3</div></div>
+      </div>
+      <div style="padding:12px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;display:flex;gap:8px;align-items:center;">
+        <div style="flex:1;background:white;border:1.5px solid #e2e8f0;border-radius:100px;padding:8px 14px;display:flex;gap:8px;align-items:center;"><span style="font-size:12px;color:#94a3b8;">🔍 Cari produk...</span></div>
+        <button style="padding:8px 12px;background:white;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;cursor:pointer;">🔽</button>
+      </div>
+      <div style="padding:14px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;">
+        ${['Flash Sale 🔥','Handphone','Laptop','Aksesoris','Kamera'].map((c,i)=>`<button style="padding:7px 14px;background:${i===0?'#ef4444':'#f1f5f9'};color:${i===0?'white':'#64748b'};border:none;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;">${c}</button>`).join('')}
+      </div>
+      <div style="padding:0 16px 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        ${[['📱','iPhone 15 Pro','Rp 19.999.000','Rp 21.999.000','⭐4.9 (2.1k)','#ef4444'],['💻','MacBook Air M2','Rp 16.500.000','Rp 18.000.000','⭐4.8 (856)','#6c5ce7'],['🎧','AirPods Pro 2','Rp 3.200.000','Rp 3.800.000','⭐4.9 (1.4k)','#1D4ED8'],['⌚','Apple Watch S9','Rp 5.900.000','Rp 6.500.000','⭐4.7 (634)','#10B981']].map(([e,n,p,op,r,c])=>`<div style="background:white;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          <div style="background:linear-gradient(135deg,#f8fafc,#e2e8f0);padding:24px;text-align:center;font-size:42px;position:relative;">${e}<div style="position:absolute;top:8px;left:8px;background:#ef4444;color:white;font-size:9px;padding:2px 6px;border-radius:4px;font-weight:700;">SALE</div></div>
+          <div style="padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:3px;">${n}</div>
+            <div style="font-size:11px;color:#64748b;margin-bottom:4px;">${r}</div>
+            <div style="font-size:10px;color:#94a3b8;text-decoration:line-through;margin-bottom:2px;">${op}</div>
+            <div style="font-size:14px;font-weight:800;color:${c};margin-bottom:8px;">${p}</div>
+            <button style="width:100%;padding:8px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">+ Keranjang</button>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+
+    /* 1 – Keranjang */
+    `<div style="background:#f8fafc;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;font-weight:700;font-size:14px;color:#0f172a;">🛒 Keranjang Belanja (3)</div>
+      <div style="padding:16px;">
+        ${[['📱','iPhone 15 Pro','256GB · Space Black','Rp 19.999.000',1],['🎧','AirPods Pro 2','Original Sealed','Rp 3.200.000',2]].map(([e,n,s,p,q])=>`<div style="background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">${e}</div>
+            <div style="flex:1;"><div style="font-weight:700;font-size:13px;color:#0f172a;">${n}</div><div style="font-size:11px;color:#64748b;margin-bottom:4px;">${s}</div><div style="font-size:14px;font-weight:800;color:#1D4ED8;">${p}</div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><button style="width:24px;height:24px;border:1px solid #e2e8f0;background:white;border-radius:6px;font-size:12px;cursor:pointer;">−</button><span style="font-size:13px;font-weight:700;width:16px;text-align:center;">${q}</span><button style="width:24px;height:24px;background:#1D4ED8;color:white;border:none;border-radius:6px;font-size:12px;cursor:pointer;font-weight:700;">+</button></div>
+          </div>
+        </div>`).join('')}
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;"><span style="color:#64748b;">Subtotal (3 item)</span><span style="font-weight:700;color:#0f172a;">Rp 26.399.000</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;"><span style="color:#64748b;">Ongkos Kirim</span><span style="font-weight:700;color:#10B981;">Gratis 🎉</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;"><span style="color:#64748b;">Voucher Diskon</span><span style="font-weight:700;color:#ef4444;">- Rp 500.000</span></div>
+          <div style="border-top:2px solid #e2e8f0;margin:10px 0;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;"><span>Total Bayar</span><span style="color:#1D4ED8;">Rp 25.899.000</span></div>
+        </div>
+        <button style="width:100%;margin-top:14px;padding:14px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.3);">Lanjut Checkout →</button>
+      </div>
+    </div>`,
+
+    /* 2 – Checkout */
+    `<div style="background:#f8fafc;min-height:520px;">
+      <div style="background:white;padding:14px 16px;border-bottom:1px solid #e2e8f0;font-weight:700;font-size:14px;color:#0f172a;">💳 Checkout</div>
+      <div style="padding:16px;">
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;margin-bottom:12px;">
+          <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:12px;">📍 Alamat Pengiriman</div>
+          ${[['Nama Penerima','Budi Santoso'],['No. HP','0812-3456-7890'],['Alamat','Jl. Mawar No.15, Kel. Sukamaju'],['Kota/Kode Pos','Bandung, 40123']].map(([l,v])=>`<div style="margin-bottom:8px;"><div style="font-size:10px;color:#64748b;font-weight:600;margin-bottom:3px;">${l}</div><div style="padding:9px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;color:#334155;background:#f8fafc;">${v}</div></div>`).join('')}
+        </div>
+        <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;margin-bottom:12px;">
+          <div style="font-weight:700;font-size:13px;color:#0f172a;margin-bottom:12px;">💳 Metode Pembayaran</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            ${[['💳','Transfer Bank BCA','Instan · Otomatis konfirmasi'],['📲','QRIS (GoPay/OVO/Dana)','Scan & bayar langsung'],['🏦','Virtual Account','BNI / Mandiri / BRI']].map(([e,t,d],i)=>`<div style="padding:12px;border:2px solid ${i===0?'#1D4ED8':'#e2e8f0'};border-radius:10px;background:${i===0?'#EFF6FF':'white'};cursor:pointer;display:flex;gap:10px;align-items:center;">
+              <span style="font-size:18px;">${e}</span>
+              <div><div style="font-size:13px;font-weight:600;color:${i===0?'#1D4ED8':'#0f172a'};">${t}</div><div style="font-size:11px;color:#64748b;">${d}</div></div>
+              ${i===0?'<div style="margin-left:auto;width:16px;height:16px;background:#1D4ED8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:white;font-weight:700;">✓</div>':''}
+            </div>`).join('')}
+          </div>
+        </div>
+        <div style="background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #e2e8f0;margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:800;"><span>Total Bayar</span><span style="color:#1D4ED8;">Rp 25.899.000</span></div>
+        </div>
+        <button style="width:100%;padding:14px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(29,78,216,.3);">Bayar Sekarang 🔒</button>
+      </div>
+    </div>`,
+
+    /* 3 – Invoice */
+    `<div style="background:#f8fafc;min-height:520px;padding:24px 20px;">
+      <div style="background:linear-gradient(135deg,#10B981,#059669);border-radius:16px;padding:20px;text-align:center;color:white;margin-bottom:16px;">
+        <div style="font-size:36px;margin-bottom:8px;">✅</div>
+        <div style="font-size:18px;font-weight:800;margin-bottom:4px;">Pembayaran Berhasil!</div>
+        <div style="font-size:12px;opacity:.8;">Pesanan Anda sedang diproses</div>
+      </div>
+      <div style="background:white;border-radius:16px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.06);border:1px solid #e2e8f0;">
+        <div style="border-bottom:1px solid #e2e8f0;padding-bottom:14px;margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:#64748b;">No. Pesanan</span><span style="font-size:12px;font-weight:700;color:#0f172a;">#ORD-2026052500142</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:#64748b;">Tanggal</span><span style="font-size:12px;color:#334155;">25 Mei 2026 · 14:22 WIB</span></div>
+          <div style="display:flex;justify-content:space-between;"><span style="font-size:12px;color:#64748b;">Metode Bayar</span><span style="font-size:12px;font-weight:600;color:#10B981;">✅ Transfer BCA</span></div>
+        </div>
+        <div style="margin-bottom:14px;">
+          ${[['📱 iPhone 15 Pro 256GB','x1','Rp 19.999.000'],['🎧 AirPods Pro 2','x2','Rp 6.400.000']].map(([n,q,p])=>`<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:12px;"><span style="color:#334155;">${n} <span style="color:#94a3b8;">${q}</span></span><span style="font-weight:600;color:#0f172a;">${p}</span></div>`).join('')}
+        </div>
+        <div style="border-top:2px solid #e2e8f0;padding-top:12px;display:flex;justify-content:space-between;font-size:16px;font-weight:800;margin-bottom:14px;"><span>Total Dibayar</span><span style="color:#10B981;">Rp 25.899.000</span></div>
+        <div style="background:#f0fdf4;border-radius:10px;padding:12px;font-size:12px;color:#059669;text-align:center;line-height:1.7;margin-bottom:14px;">📦 Estimasi tiba: 27–28 Mei 2026<br>Pengiriman via JNE Express</div>
+        <button style="width:100%;padding:11px;background:white;color:#1D4ED8;border:2px solid #1D4ED8;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;">📋 Lacak Pesanan</button>
+      </div>
+    </div>`
+  ]
+}
+
+}; // end DD
+
+/* ── DEMO FUNCTIONS ── */
+let _curType = '';
+
+function openDemo(type) {
+  const d = DD[type];
+  if (!d) return;
+  _curType = type;
+  document.getElementById('demoUrl').textContent = d.url;
+  document.getElementById('demoInfoBar').textContent = d.info;
+
+  // Build tabs
+  const tabsRow = document.getElementById('demoTabsRow');
+  tabsRow.innerHTML = d.tabs.map((t,i) =>
+    `<div class="demo-tab${i===0?' on':''}" onclick="switchDemoTab(${i},'${type}')">${t}</div>`
+  ).join('');
+
+  // Show first page
+  document.getElementById('demoBodyContent').innerHTML = d.pages[0];
+
+  // Show modal
+  document.getElementById('demoBd').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchDemoTab(idx, type) {
+  const d = DD[type];
+  if (!d) return;
+  // Update tab styles
+  document.querySelectorAll('.demo-tab').forEach((t,i) => {
+    t.classList.toggle('on', i===idx);
+  });
+  // Update content
+  document.getElementById('demoBodyContent').innerHTML = d.pages[idx];
+  document.getElementById('demoBodyContent').scrollTop = 0;
+}
+
+function closeDemo() {
+  document.getElementById('demoBd').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function closeDemoOnBg(e) {
+  if (e.target === document.getElementById('demoBd')) closeDemo();
+}
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDemo();
+});
 </script>
 </body>
 </html>
