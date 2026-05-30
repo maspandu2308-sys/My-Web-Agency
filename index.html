@@ -1912,5 +1912,22 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeDemo();
 });
 </script>
+
+<!-- Google Ads Conversion Tracking - Klik WhatsApp -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track semua klik tombol WhatsApp sebagai konversi
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18149261161/fe1wCIqMgrUcEOn-ns5D'
+          });
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
